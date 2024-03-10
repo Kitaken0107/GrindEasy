@@ -1,7 +1,7 @@
 121. Best Time to Buy and Sell Stock   
 https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 
-1st 
+1st    
 総当たりでやる   
 解答見ずに実施   
 時間計算量O(n**2)    
@@ -18,7 +18,7 @@ class Solution:
         return max_profit
 ```
 
-2nd
+2nd   
 解答を見た
 時間計算量O(n)   
 sell・buyを二つ用意して、sellを動かす際に、buy<sellだったら、過去のprofitとmaxで比較、buy>=sellだったら、最小のbuyとして更新する   
