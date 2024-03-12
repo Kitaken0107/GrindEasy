@@ -39,7 +39,7 @@ class Solution:
 dummyとcurがそれぞれ必要で、curを動かすという考えを踏襲して書いてみました   
 
 time exceedと出力   
-変なところとして 以下の順序を逆にしないとcurがlist1の元の値を飛ばしてしまうことにあとから気づきました
+変なところとして 以下の順序を逆にしないとcurがlist1の元の値を飛ばしてしまうことにあとから気づきました   
 list1 = list1.next   
 cur = list1
 
