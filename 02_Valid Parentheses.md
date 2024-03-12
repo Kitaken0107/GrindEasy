@@ -2,7 +2,9 @@
 https://leetcode.com/problems/valid-parentheses/
 
 1st   
-len(stack) == 0の場合を想定できていなかった
+一度やった問題で記憶を少したどりながらやった    
+以下の場合などの問題の深堀りが弱かった   
+・len(stack) == 0の場合を想定できていなかった   
 ```python
 class Solution:
     def isValid(self, s: str) -> bool:
