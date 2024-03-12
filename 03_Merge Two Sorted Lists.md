@@ -3,6 +3,11 @@ https://leetcode.com/problems/merge-two-sorted-lists/
 
 1st   
 回らない   
+以下書きながら悩んだ気がします   
+・dummyを使う記憶はあったが、returnでdummyにするか、dummy.mextにするかどっちだろう   
+・何も見ずに解こうとすると、「接続先を変える」・「ノードを一つ先を進める」のそれぞれの操作が、何に何を代入するか、=の左辺・右辺どっちにするか、いつもこんがらがる   
+・ListNode(list1)をしたのはなぜか思い出せないのですが、classの理解が怪しいのかもしれません
+   
 ```python
 # Definition for singly-linked list.
 # class ListNode:
@@ -30,10 +35,14 @@ class Solution:
 ```
 
 2nd   
-time exceed   
+ここで一回答えを少し見ました   
+dummyとcurがそれぞれ必要で、curを動かすという考えを踏襲して書いてみました   
+
+time exceedと出力   
+変なところとして 以下の順序を逆にしないとcurがlist1の元の値を飛ばしてしまうことにあとから気づきました
 list1 = list1.next   
 cur = list1
-これの順序を逆にしないとcurが飛ばしてしまう
+
 
 ```python
 # Definition for singly-linked list.
@@ -62,7 +71,7 @@ class Solution:
 ```
 
 3rd
-
+再度書き直し
 ```python
 # Definition for singly-linked list.
 # class ListNode:
