@@ -49,3 +49,52 @@ class Solution:
 
 ```
 
+2nd:林さんのコメントをもとに1stを改善   
+・xをcに
+・tによるハッシュテーブル削除の際にすでに0だったら、falseにした
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        
+        count = defaultdict(int)
+        
+        for c in s:
+            count[c] += 1
+        for c in t:
+            if count[c] == 0:
+                return False
+            count[c] -= 1
+            
+        for val in count.values():
+            if val != 0:
+                return False
+        return True
+
+```
+
+3rd?:sortでの解きなおし   
+方針：   
+・関数を作成：strをリストに変換して、リスト内の文字を昇順に変更、文字列にして返す   
+(sとtで同じ処理を二回やるのが面倒だと思ったので、関数化しようと思いついた)      
+・s・tを上記関数で変換   
+・sとtが一致していたら、True/それ以外はFalse
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        def str_sort(c):
+            temp = list(c)
+            temp = sorted(temp)
+            c = str(temp)
+            return c
+
+        s = str_sort(s)
+        t = str_sort(t)
+
+        if s == t:
+            return True
+        else:
+            return False
+
+
+
+```
