@@ -71,6 +71,23 @@ class Solution:
         return True
 
 ```
+2nd-2:林さんのコメントをもとに2ndを改善   
+・事前にsとtの長さが同じか確認することで、tのハッシュテーブルを問題なく引き終えれば、Trueを返すことで対応         
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        count = defaultdict(int)
+        if len(s) != len(t):
+            return False
+        for c in s:
+            count[c] += 1
+        for c in t:
+            if count[c] == 0:
+                return False
+            count[c] -= 1
+        return True
+
+```
 
 3rd?:sortでの解きなおし   
 方針：   
@@ -95,6 +112,18 @@ class Solution:
         else:
             return False
 
+```
 
+3rd-2:林さんのコメントをもとにsortでやった3ndを改善     
+改善点：   
+・str→list→strにしていたのを、str→listでとどめて処理   
+・if s == t: return True・・・をreturn s==tみたいなものにシンプルに   
+・sを変換・tを変換・s==tを判定を一つにまとめ上げる
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        def list_sort(c):
+            return sorted(list(c))
+        return list_sort(s) == list_sort(t)
 
 ```
