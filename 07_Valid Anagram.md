@@ -89,6 +89,30 @@ class Solution:
 
 ```
 
+2nd-3:小田さんのコメントをもとに2nd-2を改善   
+・defaultdictを使うのをやめる   
+・それに伴い、特に引くときに場合分けが必要
+・論理を明快にする   
+　・dictに足すときは、変数がなければ初期化・あれば追加   
+　・dictから引くときは、文字列がないor文字列があってもすでに0の場合はFalseでそれ以外はマイナスで、回し切れたらTrue      
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        count_str = {}
+        if len(s) != len(t):
+            return False
+        for ch in s:
+            if ch not in count_str:
+                count_str[ch] = 0
+            count_str[ch] += 1
+        for ch in t:
+            if ch not in count_str or count_str[ch] == 0: #この条件の順序は変えられない/複数文に分けてもよい
+                return False
+            count_str[ch] -= 1
+        return True
+
+```
+
 3rd?:sortでの解きなおし   
 方針：   
 ・関数を作成：strをリストに変換して、リスト内の文字を昇順に変更、文字列にして返す   
@@ -126,4 +150,11 @@ class Solution:
             return sorted(list(c))
         return list_sort(s) == list_sort(t)
 
+```
+
+3rd-3:林さん・小田さんの文字列のままsortして出力    
+```python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        return sorted(s) == sorted(t)
 ```
